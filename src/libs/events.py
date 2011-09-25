@@ -22,14 +22,4 @@ class Handler(object):
     def got_connect(self, connection):
         '''Called when we get or establish a connection'''
         pass
-
-class Logger(Handler):
-    '''Print events as they happen. TODO: Write to a log file'''
-    def got_message(self, message):
-        self._output('Got a message')
-
-    def got_connect(self, connection):
-        self._output('Got a connection')
-
-    def _output(self, message):
-        print('[*] %s' % message)
+        
