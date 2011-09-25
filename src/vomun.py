@@ -7,3 +7,14 @@ print('''
 = Build: %s
 ======================
 ''' % (VERSION, BUILD))
+
+import time
+
+import libs.events
+import libs.logs
+
+import tunnels.directudp
+tunnels.directudp.start()
+
+while True:
+    time.sleep(1)

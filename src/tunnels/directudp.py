@@ -1,5 +1,8 @@
+import time
 import socket
+import threading
 import tunnels.base
+import libs.events
 
 class Tunnel(tunnels.base.Tunnel):
     '''Make a direct UDP connection to a peer'''
@@ -9,8 +12,30 @@ class Connection(tunnels.base.Connection):
     '''UDP "connection" to a peer'''
     pass
     
-class Listener(object):
+class Listener(threading.Thread):
     '''Listen for UDP connections on our port'''
-    def __init__(self, port = 9999):
+    def __init__(self, port = 1337):
+        super(Listener, self).__init__()
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
         self.sock.bind(('0.0.0.0', port)) # TODO: bind other addresses
+        self.sock.setblocking(False)
+        
+        self._stop = threading.Event()
+
+    def stop(self):
+        self._stop.set()
+        
+    def run(self):
+        while not self._stop.isSet():
+            try:
+                data = self.sock.recvfrom(4096)
+                msg = tunnels.base.Message(data[1][0], data[1][1], data[0])
+                libs.events.broadcast('got_message', msg)
+            except socket.error, error:
+                if error.errno == 11: # No messages
+                    time.sleep(1)       
+        
+        
+def start():
+    listener = Listener()
+    listener.start()

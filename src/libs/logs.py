@@ -5,6 +5,7 @@ class Logger(libs.events.Handler):
     '''Print events as they happen. TODO: Write to a log file'''
     def got_message(self, message):
         self._output('Got a message')
+        self._output('  Message was: %s' % message.msg)
 
     def got_connect(self, connection):
         self._output('Got a connection')
