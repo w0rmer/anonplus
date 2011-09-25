@@ -13,3 +13,11 @@ class Tunnel(object):
 class Connection(object):
     '''A class to store a connection to a peer'''
     pass
+    
+class Message(object):
+    '''An object to store a message'''
+    def __init__(self, from_ip, from_port, message):
+        self.src = from_ip
+        self.src_port = from_port
+        self.msg = message
+        
