@@ -1,0 +1,4 @@
+Vomun is the backend of Anon+ that routes data over other anonymous systems
+like Tor, I2P, Freenet, and so on as well as its own custom network.
+This gives us the advantage of all the other networks while still being able to
+create our own flexible system.

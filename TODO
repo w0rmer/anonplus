@@ -1,0 +1,18 @@
+[N] = New
+[M] = More info needed
+[I] = In progress
+[B] = Blocked by other entry
+[C] = Can't do it
+!   = High priority
+
+Unassigned:
+ [N!] Get a freaking routing system worked out. Discuss in #anon+
+      Also depends on the chat between aj00200 and pharno
+
+aj00200:
+ [I!] Setup project file structure
+
+higocha:
+ [N!] Setup git repo or defer to vic20 when he gets back
+
+pharno:
