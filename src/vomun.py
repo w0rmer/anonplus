@@ -10,6 +10,7 @@ print('''
 
 import time
 
+import libs.threadmanager
 import libs.events
 import libs.logs
 
@@ -20,8 +21,7 @@ import tunnels.directudp
 tunnels.directudp.start()
 
 try:
-	while True:
-	    time.sleep(1)
+    while True:
+        time.sleep(1)
 except:
-	print "exiting"
-	exit(0)
+    libs.threadmanager.killall()
