@@ -10,9 +10,12 @@ class Logger(libs.events.Handler):
     def got_connect(self, connection):
         self._output('Got a connection')
 
-    def _output(self, message):
-        print('[*] %s' % message)
+    def info(self,message):
+        self._output("[info] %s" % message)
 
-if OUTPUT:
-    logger = Logger()
-    libs.events.register_handler(logger)
+    def _output(self, message):
+        if OUTPUT:
+            print('[*] %s' % message)
+
+logger = Logger()
+libs.events.register_handler(logger)

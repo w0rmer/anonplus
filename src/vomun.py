@@ -14,6 +14,9 @@ import libs.threadmanager
 import libs.events
 import libs.logs
 
+import libs.friends as friends
+friends.load_friends()
+
 import tunnels.directudp
 tunnels.directudp.start()
 
