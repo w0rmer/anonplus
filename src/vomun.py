@@ -13,8 +13,15 @@ import time
 import libs.events
 import libs.logs
 
+import libs.friends as friends
+friends.load_friends()
+
 import tunnels.directudp
 tunnels.directudp.start()
 
-while True:
-    time.sleep(1)
+try:
+	while True:
+	    time.sleep(1)
+except:
+	print "exiting"
+	exit(0)

@@ -1,10 +1,12 @@
 '''This module loads a list of friends out of ~/.vomun/friends.json'''
 import json
-
+import os.path
 friends = {}
+friendlist = None
 def load_friends():
-    '''Load the list of friends'''
-    pass
+    friendlistpath = os.path.expanduser("~/.vomun/friends.json")
+    friendlist = open(friendlistpath,"rw")
+    friends = json.loads(friendlist.read())
 
 def save_friends():
     '''Save the list of friends'''
