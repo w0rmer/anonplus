@@ -10,8 +10,6 @@ class Tunnel(object):
         '''Disconnect from a node at `nodeid`'''
         pass
 
-    def transfer(
-
 class Connection(object):
     '''A class to store a connection to a peer'''
     pass
