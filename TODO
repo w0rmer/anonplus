@@ -6,13 +6,17 @@
 !   = High priority
 
 Unassigned:
- [N!] Get a freaking routing system worked out. Discuss in #anon+
-      Also depends on the chat between aj00200 and pharno
+ [I!] Get a freaking routing system worked out. Discuss in #anon+
+ [B] Implement the routing system
+ [B] Get chat working on top of our connections and routing
 
 aj00200:
- [I!] Setup project file structure
+ [IB] Work on basic connections
+      Blocked by a working libs/friends.py file
 
 higocha:
  [N!] Setup git repo or defer to vic20 when he gets back
+ [N] Get a commit bot for our secret channel
 
 pharno:
+ [I!] Get libs/friends.py to work
