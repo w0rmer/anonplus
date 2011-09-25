@@ -1,6 +1,7 @@
 import time
 import socket
 import threading
+import libs.threadmanager
 import tunnels.base
 import libs.events
 
@@ -12,7 +13,7 @@ class Connection(tunnels.base.Connection):
     '''UDP "connection" to a peer'''
     pass
     
-class Listener(threading.Thread):
+class Listener(libs.threadmanager.Thread):
     '''Listen for UDP connections on our port'''
     def __init__(self, port = 1337):
         super(Listener, self).__init__()
@@ -39,3 +40,4 @@ class Listener(threading.Thread):
 def start():
     listener = Listener()
     listener.start()
+    libs.threadmanager.register(listener)
