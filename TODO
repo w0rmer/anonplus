@@ -3,6 +3,7 @@
 [I] = In progress
 [B] = Blocked by other entry
 [C] = Can't do it
+[F] = Finished
 !   = High priority
 
 Unassigned:
@@ -19,4 +20,5 @@ higocha:
  [N] Get a commit bot for our secret channel
 
 pharno:
- [I!] Get libs/friends.py to work
+ 
+ [F] Get libs/friends.py to work
