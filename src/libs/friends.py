@@ -11,16 +11,16 @@ def load_friends():
     friendlist = open(friendlistpath,"rw")
     friendsjson = json.loads(friendlist.read())
     for friend in friendsjson:
-    	try:
-    		port = friend["port"]
-    		keyid = friend["keyid"]
-    		name = friend["keyid"]
-    		ip = friend["lastip"]
-    		friendo = Friend(ip, port, name, keyid)
-    		log.info(friendo)
+        try:
+            port = friend["port"]
+            keyid = friend["keyid"]
+            name = friend["keyid"]
+            ip = friend["lastip"]
+            friendo = Friend(ip, port, name, keyid)
+            log.info(friendo)
 
-    	except Exception as ex: 
-    		print ex, friend
+        except Exception as ex: 
+            print ex, friend
 
 def save_friends():
     '''Save the list of friends'''
@@ -35,11 +35,11 @@ def del_friend(nodeid):
     pass
 
 class Friend:
-	def __init__(self, ip, port=1337, name = "unknown", keyid= "00000000000"):
-		self.ip = ip
-		self.port = port
-		self.name = name
-		self.keyid = keyid
-	def __str__(self):
-		return "<friend %s on %s:%i with id %s>" % 
-                (self.name, self.ip, self.port, self.keyid)
+    def __init__(self, ip, port=1337, name = "unknown", keyid= "00000000000"):
+        self.ip = ip
+        self.port = port
+        self.name = name
+        self.keyid = keyid
+    def __str__(self):
+        return "<friend %s on %s:%i with id %s>" % (
+                self.name, self.ip, self.port, self.keyid)
