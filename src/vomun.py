@@ -12,7 +12,7 @@ import time
 
 import libs.threadmanager
 import libs.events
-import libs.logs
+import libs.logs as logs
 
 import libs.friends as friends
 friends.load_friends()
@@ -25,3 +25,4 @@ try:
         time.sleep(1)
 except:
     libs.threadmanager.killall()
+    print friends.save_friends()

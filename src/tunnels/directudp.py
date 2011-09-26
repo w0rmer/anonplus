@@ -5,15 +5,17 @@ import libs.threadmanager
 import tunnels.base
 import libs.events
 
+connections = {}
+
 class Tunnel(tunnels.base.Tunnel):
     '''Make a direct UDP connection to a peer'''
     pass
     
 class Connection(tunnels.base.Connection):
     '''UDP "connection" to a peer'''
-    def __init__(self, address, port):
+    def __init__(self, node): # TODO switch to a global node class
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.sock.connect((address, port))
+        self.sock.connect((node.ip, node.port))
         
         self.sock.send('Can I connect?\n')
     
@@ -45,3 +47,6 @@ def start():
     listener = Listener()
     listener.start()
     libs.threadmanager.register(listener)
+    
+    for friend in libs.friends.friends:
+        connections[friend] = Connection(libs.friends.friends[friend])

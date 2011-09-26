@@ -3,6 +3,7 @@
 [I] = In progress
 [B] = Blocked by other entry
 [C] = Can't do it
+[F] = Finished
 !   = High priority
 
 Unassigned:
@@ -21,4 +22,5 @@ vic20:
  [N!] Setup a git repo
 
 pharno:
- [I!] Get libs/friends.py to work
+ 
+ [F] Get libs/friends.py to work
