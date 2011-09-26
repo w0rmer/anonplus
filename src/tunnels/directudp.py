@@ -11,7 +11,11 @@ class Tunnel(tunnels.base.Tunnel):
     
 class Connection(tunnels.base.Connection):
     '''UDP "connection" to a peer'''
-    pass
+    def __init__(self, address, port):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.connect((address, port))
+        
+        self.sock.send('Can I connect?\n')
     
 class Listener(libs.threadmanager.Thread):
     '''Listen for UDP connections on our port'''

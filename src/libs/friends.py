@@ -3,10 +3,12 @@ import json
 import os.path
 from libs.logs import logger as log
 
-friends = {}
+friends = []
 friendlist = None
 
 def load_friends():
+    global friends
+    
     friendlistpath = os.path.expanduser("~/.vomun/friends.json")
     friendlist = open(friendlistpath,"rw")
     friendsjson = json.loads(friendlist.read())
@@ -17,7 +19,9 @@ def load_friends():
             name = friend["keyid"]
             ip = friend["lastip"]
             friendo = Friend(ip, port, name, keyid)
-            log.info(friendo)
+            log.info(friendo) # TODO update log system and this usage
+            
+            friends.append(friendo) # Add to the friends list
 
         except Exception as ex: 
             print ex, friend
