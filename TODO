@@ -15,8 +15,10 @@ aj00200:
       Blocked by a working libs/friends.py file
 
 higocha:
- [N!] Setup git repo or defer to vic20 when he gets back
  [N] Get a commit bot for our secret channel
+
+vic20:
+ [N!] Setup a git repo
 
 pharno:
  [I!] Get libs/friends.py to work
